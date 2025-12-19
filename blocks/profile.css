@@ -68,6 +68,7 @@
 .profile__new-button {
   display: flex;
   justify-content: center;
+  margin-top: auto;
   margin-left: auto;
   width: 149px;
   height: 52px;
