@@ -1,0 +1,11 @@
+.cards {
+  border-bottom: 1px solid black;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 627px) {
+  .cards {
+    margin-top: 40px;
+    max-width: 288px;
+  }
+}
