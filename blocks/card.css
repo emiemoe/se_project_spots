@@ -22,17 +22,6 @@
   display: block;
 }
 
-.card__list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  padding: 20px 0 20px;
-  grid-template-columns: repeat(auto-fit, 413px);
-  display: grid;
-  gap: 40px 20px;
-  justify-content: center;
-}
-
 .card__title {
   height: 24px;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -66,11 +55,6 @@
 }
 
 @media screen and (max-width: 627px) {
-  .card__list {
-    width: 288px;
-    grid-template-columns: repeat(auto-fit, 288px);
-  }
-
   .card__image {
     height: 288px;
     width: 288px;
