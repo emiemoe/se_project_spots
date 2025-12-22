@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -18,12 +17,13 @@
   width: 413px;
   height: 413px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
   display: block;
+  gap: 12px;
 }
 
 .card__title {
-  height: 24px;
+  max-width: 353px;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -33,7 +33,7 @@
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
@@ -45,8 +45,8 @@
   padding: 0;
   margin: 10px 0 0 0;
   letter-spacing: 0%;
-  color: rgba(33, 33, 33, 0.5);
-  opacity: 0.5;
+  color: rgba(33, 33, 33, 0.4);
+  opacity: 0.4;
 }
 
 .card__heart-button:hover {
@@ -62,6 +62,7 @@
 
   .card__title {
     font-size: 16px;
+    max-width: 235px;
   }
 
   .card__content {
