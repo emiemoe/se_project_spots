@@ -128,6 +128,61 @@
       <footer class="footer">
         <p class="footer__label">2025 &copy; Spots</p>
       </footer>
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <div class="modal__row">
+            <h2 class="modal__title">Edit profile</h2>
+            <button class="modal__close-button"></button>
+          </div>
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label"
+              >Name
+              <input
+                type="text"
+                id="profile-name-input"
+                class="modal__input"
+                placeholder="Type your name"
+              />
+            </label>
+            <label for="profile-description-input" class="modal__label"
+              >Description
+              <input
+                type="text"
+                id="profile-description-input"
+                class="modal__input"
+                placeholder="Describe yourself"
+            /></label>
+            <button type="submit" class="modal__save-button">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <div class="modal__row">
+            <h2 class="modal__title">New post</h2>
+            <button class="modal__close-button"></button>
+          </div>
+          <form class="modal__form">
+            <label for="image-link" class="modal__label"
+              >Image link
+              <input
+                type="url"
+                id="image-link"
+                class="modal__input"
+                placeholder="Paste a link to a picture"
+            /></label>
+            <label for="caption" class="modal__label"
+              >Caption
+              <input
+                type="text"
+                id="caption-label"
+                class="modal__input"
+                placeholder="Type your caption"
+            /></label>
+            <button type="submit" class="modal__save-button">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,136 @@
+.modal {
+  visibility: hidden;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.modal__row {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal_is-opened {
+  visibility: visible;
+}
+
+.modal__container {
+  max-width: 730px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 32px 50px;
+  position: relative;
+}
+
+.modal__save-button {
+  display: flex;
+  justify-content: center;
+  width: 149px;
+  height: 52px;
+  border-radius: 8px;
+  background-color: rgb(33, 33, 33);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #fcf5e5;
+  gap: 8px;
+  align-items: center;
+}
+
+.modal__save-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.modal__close-button {
+  width: 40px;
+  height: 40px;
+  padding: ;
+  border: none;
+  background: url(../images/closeicon.svg);
+  position: absolute;
+  top: 32px;
+  right: 50px;
+}
+
+.modal__close-button:hover {
+  background: url(../images/closehovericon.svg);
+  cursor: pointer;
+}
+
+.modal__title {
+  margin: 0 0 32px;
+  font-weight: 500;
+  font-size: 32px;
+  font-style: medium;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.modal__input {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  padding: 16px 8px;
+  border-radius: 8px;
+  boreder: 1px solid rgba(33, 33, 33, 0.4);
+  opacity: 0.4;
+  font-weight: 500;
+  font-size: 20px;
+  font-style: medium;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.modal__input:hover {
+  opacity: 1;
+}
+
+.modal__label {
+  margin: 0 0 32px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 16px;
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.modal__input::placeholder {
+  color: rgba(33, 33, 33, 0.3);
+}
+
+@media screen and (max-width: 627px) {
+  .modal__save-button {
+    margin-left: auto;
+    width: 100%;
+    height: fit-content;
+    padding: 18px 32px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    margin: 0 0 24px;
+  }
+
+  .modal__input {
+    font-size: 16px;
+  }
+
+  .modal__label {
+    font-size: 16px;
+  }
+}
