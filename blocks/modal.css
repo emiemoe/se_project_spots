@@ -10,6 +10,8 @@
   justify-content: center;
   align-items: center;
   padding: 10px 10px;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal__row {
@@ -25,6 +27,8 @@
 }
 .modal_is-opened {
   visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
 }
 .modal__container {
   max-width: 730px;
