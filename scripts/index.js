@@ -3,11 +3,8 @@ const profileEditModal = document.querySelector("#edit-profile-modal");
 const profileCloseBtn = profileEditModal.querySelector(".modal__close-button");
 const profileNameInput = profileEditModal.querySelector("#profile-name-input");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const profileDesInput = profileEditModal.querySelector(
+const profileDescriptionInput = profileEditModal.querySelector(
   "#profile-description-input"
-);
-const profileEditSaveBtn = profileEditModal.querySelector(
-  ".modal__save-button"
 );
 
 const newPost = document.querySelector(".profile__new-button");
@@ -16,15 +13,16 @@ const newPostClose = newPostModal.querySelector(".modal__close-button");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostImage = newPostModal.querySelector("#image-link");
 const newPostCaption = newPostModal.querySelector("#caption-label");
-const newPostSavebtn = newPostModal.querySelector(".modal__save-button");
 
 const profileNameElement = document.querySelector(".profile__name");
-const profileDesElement = document.querySelector(".profile__description");
+const profileDescriptionElement = document.querySelector(
+  ".profile__description"
+);
 
 profileEditBtn.addEventListener("click", function () {
   profileEditModal.classList.add("modal_is-opened");
   profileNameInput.value = profileNameElement.textContent;
-  profileDesInput.value = profileDesElement.textContent;
+  profileDescriptionInput.value = profileDescriptionElement.textContent;
 });
 profileCloseBtn.addEventListener("click", function () {
   profileEditModal.classList.remove("modal_is-opened");
@@ -41,7 +39,7 @@ newPostClose.addEventListener("click", function () {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameElement.textContent = profileNameInput.value;
-  profileDesElement.textContent = profileDesInput.value;
+  profileDescriptionElement.textContent = profileDescriptionInput.value;
   profileEditModal.classList.remove("modal_is-opened");
 }
 
@@ -49,8 +47,8 @@ profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
-  console.log(newPostImage);
-  console.log(newPostCaption);
+  console.log(newPostImage.value);
+  console.log(newPostCaption.value);
   newPostModal.classList.remove("modal_is-opened");
 }
 

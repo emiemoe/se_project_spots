@@ -37,6 +37,7 @@
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
+  box-sizing: border-box;
 }
 
 .modal__save-button {
@@ -63,7 +64,6 @@
 .modal__close-button {
   width: 40px;
   height: 40px;
-  padding: ;
   border: none;
   background: url(../images/closeicon.svg);
   position: absolute;
@@ -80,7 +80,6 @@
   margin: 0 0 32px;
   font-weight: 500;
   font-size: 32px;
-  font-style: medium;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
@@ -90,16 +89,17 @@
   width: 100%;
   padding: 16px 8px;
   border-radius: 8px;
-  boreder: 1px solid rgba(33, 33, 33, 0.4);
+  border: 1px solid rgba(33, 33, 33, 0.4);
   opacity: 0.4;
   font-weight: 500;
   font-size: 20px;
-  font-style: medium;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 .modal__input:hover {
   opacity: 1;
+  border-color: rgba(33, 33, 33, 0.9);
 }
 
 .modal__label {
@@ -129,10 +129,6 @@
   }
 
   .modal__input {
-    font-size: 16px;
-  }
-
-  .modal__label {
     font-size: 16px;
   }
 }

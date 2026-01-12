@@ -19,7 +19,6 @@
   object-fit: cover;
   border-radius: 8px;
   display: block;
-  gap: 12px;
 }
 
 .card__title {
@@ -29,7 +28,6 @@
   font-size: 20px;
   margin: 10px 0 0 0;
   color: #212121;
-  letter-spacing: 0%;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -44,7 +42,6 @@
   border: none;
   padding: 0;
   margin: 10px 0 0 0;
-  letter-spacing: 0%;
   color: rgba(33, 33, 33, 0.4);
   opacity: 0.4;
 }
