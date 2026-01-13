@@ -116,6 +116,14 @@
 }
 
 @media screen and (max-width: 627px) {
+  .modal__container {
+    padding: 22px 12px 12px;
+  }
+
+  .modal__close-button {
+    top: 16px;
+    right: 12px;
+  }
   .modal__save-button {
     margin-left: auto;
     width: 100%;

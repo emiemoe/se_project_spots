@@ -18,7 +18,6 @@ const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description"
 );
-
 profileEditBtn.addEventListener("click", function () {
   profileEditModal.classList.add("modal_is-opened");
   profileNameInput.value = profileNameElement.textContent;
