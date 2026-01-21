@@ -19,34 +19,31 @@ const profileDescriptionElement = document.querySelector(
   ".profile__description"
 );
 
-profileEditBtn.addEventListener("click", () => {
-  profileEditModal.classList.add("modal_is-opened");
+profileEditBtn.addEventListener("click", function () {
+  openModal(profileEditModal);
   profileNameInput.value = profileNameElement.textContent;
   profileDescriptionInput.value = profileDescriptionElement.textContent;
 });
-profileCloseBtn.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal_is-opened");
+profileEditClose.addEventListener("click", function () {
+  closeModal(profileEditModal);
 });
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameElement.textContent = profileNameInput.value;
   profileDescriptionElement.textContent = profileDescriptionInput.value;
-  profileEditModal.classList.remove("modal_is-opened");
 }
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
-newPost.addEventListener("click", () => {
-  newPostModal.classList.add("modal_is-opened");
-  console.log(newPostImage);
-  console.log(newPostCaption);
+newPost.addEventListener("click", function () {
+  openModal(newPostModal);
 });
-newPostClose.addEventListener("click", () => {
-  newPostModal.classList.remove("modal_is-opened");
+newPostClose.addEventListener("click", function () {
+  closeModal(newPostModal);
 });
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
   console.log(newPostImage.value);
   console.log(newPostCaption.value);
-  newPostModal.classList.remove("modal_is-opened");
 }
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);
