@@ -18,20 +18,24 @@ const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description",
 );
-
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
 profileEditBtn.addEventListener("click", function () {
   openModal(profileEditModal);
   profileNameInput.value = profileNameElement.textContent;
   profileDescriptionInput.value = profileDescriptionElement.textContent;
 });
-profileCloseBtn.addEventListener("click", function () {
-  closeModal(profileEditModal);
-});
+profileCloseBtn.addEventListener("click", function () {});
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameElement.textContent = profileNameInput.value;
   profileDescriptionElement.textContent = profileDescriptionInput.value;
+  closeModal(profileEditModal);
 }
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
@@ -45,5 +49,6 @@ function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
   console.log(newPostImage.value);
   console.log(newPostCaption.value);
+  closeModal(newPostModal);
 }
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);
