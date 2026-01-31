@@ -11,6 +11,7 @@
 
 .card {
   max-width: 413px;
+  position: relative;
 }
 
 .card__image {
@@ -38,7 +39,7 @@
 .card__heart-button {
   width: 23px;
   height: 20px;
-  background: none;
+  background: transparent url(../images/LikeIcon.svg) center no-repeat;
   border: none;
   padding: 0;
   margin: 10px 0 0 0;
@@ -48,6 +49,28 @@
 
 .card__heart-button:hover {
   opacity: 1;
+  cursor: pointer;
+}
+.card__heart-button_active {
+  background-image: url(../images/UnionHeart.svg);
+  opacity: 1;
+}
+.card__heart-button_active:hover {
+  opacity: 0.4;
+}
+
+.card__delete-button {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent url(../images/trashCan.svg);
+  border: none;
+}
+
+.card__delete-button:hover {
+  background: url(../images/trashHover.svg);
   cursor: pointer;
 }
 
