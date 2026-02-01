@@ -78,6 +78,7 @@
                 id="profile-name-input"
                 class="modal__input"
                 placeholder="Type your name"
+                required
               />
             </label>
             <label for="profile-description-input" class="modal__label"
@@ -87,6 +88,7 @@
                 id="profile-description-input"
                 class="modal__input"
                 placeholder="Describe yourself"
+                required
             /></label>
             <button type="submit" class="modal__save-button">Save</button>
           </form>
@@ -106,20 +108,22 @@
                 id="image-link"
                 class="modal__input"
                 placeholder="Paste a link to a picture"
+                required
             /></label>
-            <label for="caption" class="modal__label"
+            <label for="caption-label" class="modal__label"
               >Caption
               <input
                 type="text"
                 id="caption-label"
                 class="modal__input"
                 placeholder="Type your caption"
+                required
             /></label>
             <button type="submit" class="modal__save-button">Save</button>
           </form>
         </div>
       </div>
-      <div class="modal modal__type_preview" id="preview-modal">
+      <div class="modal modal-type-preview" id="preview-modal">
         <div class="modal__image-container">
           <button
             aria-label="Close modal"

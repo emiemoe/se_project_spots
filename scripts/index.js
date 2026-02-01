@@ -1,7 +1,7 @@
 const initialCards = [
   {
     name: "Golden Gate Bridge",
-    Link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
   {
     name: "Val Thorens",
@@ -60,6 +60,10 @@ const cardTemplate = document
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
 
+previewModalClose.addEventListener("click", function () {
+  closeModal(previewModal);
+});
+
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleElement = cardElement.querySelector(".card__title");
@@ -77,7 +81,6 @@ function getCardElement(data) {
   const cardDeleteElement = cardElement.querySelector(".card__delete-button");
   cardDeleteElement.addEventListener("click", function () {
     cardDeleteElement.closest(".card").remove();
-    cardElement = null;
   });
 
   cardImageElement.addEventListener("click", function () {
@@ -85,10 +88,6 @@ function getCardElement(data) {
     previewImageElement.alt = data.name;
     previewCaptionElement.textContent = data.name;
     openModal(previewModal);
-  });
-
-  previewModalClose.addEventListener("click", function () {
-    closeModal(previewModal);
   });
 
   return cardElement;
@@ -127,15 +126,8 @@ newPostClose.addEventListener("click", function () {
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
   closeModal(newPostModal);
+  newPostForm.addEventListener("submit", handleNewPostFormSubmit);
 }
-newPostForm.addEventListener("submit", handleNewPostFormSubmit);
-
-const inputValues = {
-  name: newPostCaption.value,
-  link: newPostImage.value,
-};
-const cardElement = getCardElement(inputValues);
-cardsList.prepend(cardElement);
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
