@@ -126,8 +126,16 @@ newPostClose.addEventListener("click", function () {
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
   closeModal(newPostModal);
-  newPostForm.addEventListener("submit", handleNewPostFormSubmit);
+
+  const inputValues = {
+    name: newPostCaption.value,
+    link: newPostImage.value,
+  };
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
 }
+
+newPostForm.addEventListener("submit", handleNewPostFormSubmit);
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
