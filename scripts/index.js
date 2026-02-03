@@ -133,6 +133,7 @@ function handleNewPostFormSubmit(evt) {
   };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+  newPostForm.reset();
 }
 
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);

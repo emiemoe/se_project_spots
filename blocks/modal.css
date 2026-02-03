@@ -16,8 +16,8 @@
     opacity 0.5s linear;
 }
 
-.modal__type_preview {
-  padding: 16px;
+.modal_type_preview {
+  padding: 0 16px;
 }
 
 .modal__row {
@@ -111,15 +111,19 @@
 }
 
 .modal__caption {
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(33, 33, 33, 1);
-  max-width: 214px;
+  margin: 0;
   padding: 4px 8px;
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-weight: 500;
   font-size: 20px;
-  line-height: 120%;
+  font-weight: 500;
+  line-height: 24px;
+  color: #fff;
+  position: absolute;
+  background-color: #212121;
   border-radius: 8px;
+  left: 0;
+  top: calc(100% + 10px);
+  max-width: 214px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   align-content: center;
   text-align: center;
   text-overflow: ellipsis;
