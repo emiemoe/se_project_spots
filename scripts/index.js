@@ -28,7 +28,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
-
+//profileElements
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const profileEditModal = document.querySelector("#edit-profile-modal");
 const profileCloseBtn = profileEditModal.querySelector(".modal__close-button");
@@ -37,24 +37,25 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileDescriptionInput = profileEditModal.querySelector(
   "#profile-description-input",
 );
-
+//editElements
 const newPost = document.querySelector(".profile__new-button");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostClose = newPostModal.querySelector(".modal__close-button");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostImage = newPostModal.querySelector("#image-link");
 const newPostCaption = newPostModal.querySelector("#caption-label");
-
+const newPostSave = newPostModal.querySelector(".modal__save-button");
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description",
 );
-
+//previewElements
 const previewModal = document.querySelector("#preview-modal");
 const previewModalClose = previewModal.querySelector(".modal__close-button");
 const previewCaptionElement = previewModal.querySelector(".modal__caption");
 const previewImageElement = previewModal.querySelector(".modal__image");
-
+const modalElement = document.querySelector(".modal__click");
+//cardElements
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -89,7 +90,11 @@ function getCardElement(data) {
     previewCaptionElement.textContent = data.name;
     openModal(previewModal);
   });
-
+  window.onclick = (evt) => {
+    if (evt.target == previewModal) {
+      previewModal.style.display = "none";
+    }
+  };
   return cardElement;
 }
 
@@ -99,10 +104,15 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
+
 profileEditBtn.addEventListener("click", function () {
   openModal(profileEditModal);
   profileNameInput.value = profileNameElement.textContent;
   profileDescriptionInput.value = profileDescriptionElement.textContent;
+  resetValidation(profileEditForm, settings, [
+    profileNameInput,
+    profileDescriptionInput,
+  ]);
 });
 profileCloseBtn.addEventListener("click", function () {
   closeModal(profileEditModal);
@@ -114,6 +124,7 @@ function handleProfileFormSubmit(evt) {
   profileDescriptionElement.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
 }
+
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 newPost.addEventListener("click", function () {
@@ -125,7 +136,6 @@ newPostClose.addEventListener("click", function () {
 
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
-  closeModal(newPostModal);
 
   const inputValues = {
     name: newPostCaption.value,
@@ -133,7 +143,9 @@ function handleNewPostFormSubmit(evt) {
   };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  newPostForm.reset();
+  evt.target.reset();
+  disableButton(newPostSave, settings);
+  closeModal(newPostModal);
 }
 
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);
@@ -142,3 +154,29 @@ initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+--------------------------------------------
+window.onclick = (evt) => {
+  if (evt.target == previewModal) {
+    previewModal.style.display = "none";
+  }
+};
+
+window.onclick = (evt) => {
+  if (evt.target == newPostModal) {
+    newPostModal.style.display = "none";
+  }
+};
+
+window.onclick = (evt) => {
+  if (evt.target == profileEditModal) {
+    profileEditModal.style.display = "none";
+  }
+};
+
+window.onload = function () {
+  document.onclick = function (e) {
+    if (e.target.id == "myModal") {
+      closeModal();
+    }
+  };
+};
