@@ -32,9 +32,14 @@ const hideInputError = (formElement, inputElement, configuration) => {
 
 const checkInputValidity = (formElement, inputElement, configuration) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      configuration,
+    );
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, configuration);
   }
 };
 
@@ -45,7 +50,7 @@ const hasInvalidInput = (inputList, configuration) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, configuration) => {
-  if (hasInvalidInput(inputList)) {
+  if (hasInvalidInput(inputList, buttonElement)) {
     disableButton(buttonElement);
   } else {
     buttonElement.classList.remove(configuration.inactiveButtonClass);
@@ -60,19 +65,19 @@ const disableButton = (buttonElement, configuration) => {
 
 const resetValidation = (formElement, inputList) => {
   inputList.forEach((input) => {
-    hideInputError(formElement, input);
+    hideInputError(formElement, input, configuration);
   });
 };
 
 const setEventListeners = (formElement, configuration) => {
   const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
   const buttonElement = formElement.querySelector(".modal__save-button");
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement, configuration);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, configuration);
+      toggleButtonState(inputList, buttonElement, configuration);
     });
   });
 };
@@ -80,7 +85,7 @@ const setEventListeners = (formElement, configuration) => {
 const enableValidation = (configuration) => {
   const formList = document.querySelectorAll(configuration.formSelector);
   formList.forEach((formElement) => {
-    setEventListeners(formElement);
+    setEventListeners(formElement, configuration);
   });
 };
 
