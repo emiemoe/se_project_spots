@@ -2,7 +2,7 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save_button_inactive",
+  inactiveButtonClass: "modal__save-button_inactive",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_active",
 };
@@ -10,13 +10,13 @@ const settings = {
 const showInputError = (
   formElement,
   inputElement,
-  ErrorMessage,
+  errorMessage,
   configuration,
 ) => {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`,
   );
-  errorMessageElement.textContent = ErrorMessage;
+  errorMessageElement.textContent = errorMessage;
   inputElement.classList.add(configuration.inputErrorClass);
 };
 
@@ -48,7 +48,7 @@ const hasInvalidInput = (inputList, formElement) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, configuration) => {
-  if (hasInvalidInput(inputList, formElement)) {
+  if (hasInvalidInput(inputList)) {
     disableButton(buttonElement, configuration);
   } else {
     buttonElement.classList.remove(configuration.inactiveButtonClass);
@@ -63,7 +63,7 @@ const disableButton = (buttonElement, configuration) => {
 
 const resetValidation = (formElement, inputList, settings) => {
   inputList.forEach((input) => {
-    hideInputError(formElement, inputElement, configuration);
+    hideInputError(formElement, inputList, settings);
   });
 };
 
