@@ -63,7 +63,7 @@ const disableButton = (buttonElement, configuration) => {
 
 const resetValidation = (formElement, inputList, settings) => {
   inputList.forEach((input) => {
-    hideInputError(formElement, settings);
+    hideInputError(formElement, inputElement, configuration);
   });
 };
 

@@ -34,4 +34,8 @@ LOOM LINK
 https://www.loom.com/share/2975cbed1b924792ac3a75574dabad5e
 
 GOOGLE DRIVE
+PART 1
 https://drive.google.com/file/d/1-2qXWib4JFBOL5Wxu8b314qm5JmHVeEG/view?usp=sharing
+
+PART 2
+https://drive.google.com/file/d/1dqMcV9-dVHRW20Ggl2-PsrFoocismG4m/view?usp=sharing
