@@ -54,7 +54,9 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalClose = previewModal.querySelector(".modal__close-button");
 const previewCaptionElement = previewModal.querySelector(".modal__caption");
 const previewImageElement = previewModal.querySelector(".modal__image");
-
+//config
+const formElement = document.querySelector(".modal__form");
+const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
 //cardElements
 const cardTemplate = document
   .querySelector("#card-template")
@@ -89,9 +91,18 @@ function getCardElement(data) {
     previewImageElement.alt = data.name;
     previewCaptionElement.textContent = data.name;
     openModal(previewModal);
+    overlayClick(previewModal);
   });
 
   return cardElement;
+}
+
+function overlayClick(modal) {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target === modal) {
+      modal.classList.remove("modal_is-opened");
+    }
+  });
 }
 
 function openModal(modal) {
@@ -105,7 +116,7 @@ profileEditBtn.addEventListener("click", function () {
   openModal(profileEditModal);
   profileNameInput.value = profileNameElement.textContent;
   profileDescriptionInput.value = profileDescriptionElement.textContent;
-  resetValidation(formElement, inputList);
+  resetValidation(formElement, inputList, settings);
 });
 profileCloseBtn.addEventListener("click", function () {
   closeModal(profileEditModal);
@@ -117,6 +128,7 @@ function handleProfileFormSubmit(evt) {
   profileDescriptionElement.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
 }
+overlayClick(profileEditModal);
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
@@ -126,6 +138,7 @@ newPost.addEventListener("click", function () {
 newPostClose.addEventListener("click", function () {
   closeModal(newPostModal);
 });
+overlayClick(newPostModal);
 
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
@@ -146,4 +159,12 @@ newPostForm.addEventListener("submit", handleNewPostFormSubmit);
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
+});
+
+window.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    closeModal(previewModal);
+    closeModal(profileEditModal);
+    closeModal(newPostModal);
+  }
 });

@@ -1,5 +1,3 @@
-// Declaring a configuration object that contains the
-// necessary classes and selectors.
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -43,15 +41,15 @@ const checkInputValidity = (formElement, inputElement, configuration) => {
   }
 };
 
-const hasInvalidInput = (inputList, configuration) => {
+const hasInvalidInput = (inputList, formElement) => {
   return inputList.some((input) => {
     return !input.validity.valid;
   });
 };
 
 const toggleButtonState = (inputList, buttonElement, configuration) => {
-  if (hasInvalidInput(inputList, buttonElement)) {
-    disableButton(buttonElement);
+  if (hasInvalidInput(inputList, formElement)) {
+    disableButton(buttonElement, configuration);
   } else {
     buttonElement.classList.remove(configuration.inactiveButtonClass);
     buttonElement.disabled = false;
@@ -59,19 +57,23 @@ const toggleButtonState = (inputList, buttonElement, configuration) => {
 };
 
 const disableButton = (buttonElement, configuration) => {
-  buttonElement.classList.add("modal__save_button_inactive");
+  buttonElement.classList.add(configuration.inactiveButtonClass);
   buttonElement.disabled = true;
 };
 
-const resetValidation = (formElement, inputList) => {
+const resetValidation = (formElement, inputList, settings) => {
   inputList.forEach((input) => {
-    hideInputError(formElement, input, configuration);
+    hideInputError(formElement, settings);
   });
 };
 
 const setEventListeners = (formElement, configuration) => {
-  const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-  const buttonElement = formElement.querySelector(".modal__save-button");
+  const inputList = Array.from(
+    formElement.querySelectorAll(configuration.inputSelector),
+  );
+  const buttonElement = formElement.querySelector(
+    configuration.submitButtonSelector,
+  );
   toggleButtonState(inputList, buttonElement, configuration);
 
   inputList.forEach((inputElement) => {
